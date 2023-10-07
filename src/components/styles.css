@@ -1,0 +1,178 @@
+.input {
+  display: flex;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.input__box {
+  display: flex;
+  justify-content: center;
+  width: 33%;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: large;
+  border: none;
+  transition: 0.2s;
+  background-color: white;
+}
+
+.input__box:focus {
+  box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  margin-top: 40px;
+  background-color:transparent;
+}
+
+
+
+.todos-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  width: 100%;
+}
+
+
+
+
+.todos__heading {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  color: black;
+  background-color: white;
+}
+
+.todos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: medium;
+  background-color:transparent;
+  box-shadow: black;
+  border-radius: 10px; 
+}
+
+.todos__single {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: white;
+  transition: 0.2s;
+  border-radius: 8px;
+  width: 96%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.footer {
+  width: auto;
+  border: none;
+  background-color:white;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 7px;
+  margin-top: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.button{
+background-color:transparent;
+border: none;
+font-size: small;
+color: gray;
+}
+.dragactive {
+  background-color: rgb(0, 221, 236);
+}
+
+.dragcomplete {
+  background-color: rgb(255, 38, 0);
+}
+
+.remove {
+  background-color: rgb(235, 103, 80);
+}
+.drag {
+  box-shadow: 0 0 20px black;
+}
+
+.todos__single:hover {
+  box-shadow: 0 0 5px black;
+  transform: scale(1.03);
+}
+
+.todos__single--text {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  font-size: 20px;
+  margin-left: 15px;
+}
+
+.todos__single--text:focus {
+  outline: none;
+}
+
+.icon {
+  margin-left: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.doneicon {
+
+  font-size: 25px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .input {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    width: 100%;
+    flex-direction: column;
+    border-radius: 10px;
+
+  }
+
+  .todos {
+    width: 100%;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    background-color: white;
+  }
+
+  .input__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Full width for smaller screens */
+    padding: 20px;
+
+
+  }
+
+  .todos__single {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
