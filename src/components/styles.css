@@ -1,3 +1,38 @@
+.App {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  
+}
+.bg_image{
+  background-image: url("https://4kwallpapers.com/images/wallpapers/lake-mountains-rocks-twilight-sunset-starry-sky-purple-sky-3440x1440-3768.jpg");
+  height: 350px;
+  background-size: 100% 100%;
+  
+}
+
+.heading {
+  text-transform: uppercase;
+  font-size: xxx-large  ;
+  font-weight: bold;
+  align-items: start;
+  margin-bottom: 30px;
+  margin-top: 80px;
+  color: white;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  
+}
+
+
+
+
+
+
 .input {
   display: flex;
   width: 100%;
@@ -74,14 +109,15 @@
   background-color: white;
   transition: 0.2s;
   border-radius: 8px;
-  width: 96%;
+  width: 88%;
+  
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .footer {
   width: auto;
   border: none;
   background-color:white;
-  width: 100%;
+  width: 88%;
   display: flex;
   justify-content: space-around;
   border-radius: 7px;
@@ -89,7 +125,7 @@
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.button{
+.button__footer{
 background-color:transparent;
 border: none;
 font-size: small;
@@ -139,40 +175,63 @@ color: gray;
   cursor: pointer;
 }
 
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
 @media (max-width: 700px) {
-  .input {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
 
-  .container {
-    width: 100%;
-    flex-direction: column;
-    border-radius: 10px;
-
-  }
-
-  .todos {
-    width: 100%;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    background-color: white;
-  }
 
   .input__box {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 84%;
     /* Full width for smaller screens */
     padding: 20px;
 
 
   }
 
-  .todos__single {
-    width: 100%;
-    border-radius: 10px;
+  
+}
+@media (max-width: 800px) {
+  .heading {
+ 
+    font-size: xx-large;
+  }
+ 
+  
+  .bg_image {
+    height: 300px;
+    width:110%;
+ 
   }
 }

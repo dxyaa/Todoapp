@@ -22,23 +22,23 @@ const TodoList: React.FC<props> = ({
 }) => {
   const handleClearCompleted = () => {
     console.log("Clear completed tasks button clicked");
-   
+
     const updatedTodos = todos.filter((todo) => !todo.isDone);
     setTodos(updatedTodos);
 
-    
+
     setCompletedTodos([]);
   };
   const [filter, setFilter] = useState<string>("All");
 
-  
+
   const filteredTodos = todos.filter((todo) => {
     if (filter === "All") {
-      return true; 
+      return true;
     } else if (filter === "Active") {
-      return !todo.isDone; 
+      return !todo.isDone;
     } else if (filter === "Completed") {
-      return todo.isDone; 
+      return todo.isDone;
     }
     return true;
   });
@@ -66,11 +66,11 @@ const TodoList: React.FC<props> = ({
                 {provided.placeholder}
               </div>
               <div className="footer">
-                <button className="button">
+                <button className="button__footer">
                   {countNotCompletedTasks(todos)} items left
                 </button>
                 <button
-                  className={`button ${filter === "All" ? "active" : ""}`}
+                  className={`button__footer ${filter === "All" ? "active" : ""}`}
                   onClick={() => {
                     setFilter("All");
                     console.log("All button clicked");
@@ -79,7 +79,7 @@ const TodoList: React.FC<props> = ({
                   All
                 </button>
                 <button
-                  className={`button ${filter === "Active" ? "active" : ""}`}
+                  className={`button__footer ${filter === "Active" ? "active" : ""}`}
                   onClick={() => {
                     setFilter("Active");
                     console.log("Active button clicked");
@@ -88,7 +88,7 @@ const TodoList: React.FC<props> = ({
                   Active
                 </button>
                 <button
-                  className={`button ${filter === "Completed" ? "active" : ""}`}
+                  className={`button__footer${filter === "Completed" ? "active" : ""}`}
                   onClick={() => {
                     setFilter("Completed");
                     console.log("Completed button clicked");
@@ -96,7 +96,7 @@ const TodoList: React.FC<props> = ({
                 >
                   Completed
                 </button>
-                <button className="button" onClick={handleClearCompleted}>
+                <button className="button__footer" onClick={handleClearCompleted}>
                   Clear Completed
                 </button>
               </div>
