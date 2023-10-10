@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { AiFillEdit, AiOutlineClose, AiFillCheckCircle, AiOutlineCheckCircle } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
 import { Todo } from "../model";
-import { Draggable } from "react-beautiful-dnd";
+
 
 
 
@@ -46,58 +46,57 @@ const SingleTodo: React.FC<{
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <Draggable draggableId={todo.id.toString()} index={index}>
-      {(provided, snapshot) => (
-        <form
-          onSubmit={(e) => handleEdit(e, todo.id)}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          ref={provided.innerRef}
-          className={`todos__single ${snapshot.isDragging ? "drag" : ""}`}
-        >
-          <span className="doneicon" onClick={() => handleDone(todo.id)}>
-            <div className="cursor-pointer select-none">
-              {isActive ? <AiFillCheckCircle onClick={() => {
-                setIsActive(!isActive)
-              }} /> :
-                <AiOutlineCheckCircle onClick={() => {
-                  setIsActive(!isActive)
-                }} />
-              }
-            </div>
-          </span>
-          {edit ? (
-            <input
-              value={editTodo}
-              onChange={(e) => setEditTodo(e.target.value)}
-              className="todos__single--text"
-              ref={inputRef}
-            />
-          ) : todo.isDone ? (
-            <s className="todos__single--text">{todo.todo}</s>
-          ) : (
-            <span className="todos__single--text">{todo.todo}</span>
-          )}
-          <div>
 
-            <span
-              className="icon"
-              onClick={() => {
-                if (!edit && !todo.isDone) {
-                  setEdit(!edit);
-                }
-              }}
-            >
-              <AiFillEdit />
-            </span>
-            <span className="icon" onClick={() => handleDelete(todo.id)}>
-              <AiOutlineClose />
-            </span>
 
-          </div>
-        </form>
+    <form
+      onSubmit={(e) => handleEdit(e, todo.id)}
+
+      className={`todos__single `}
+    >
+      <span className="doneicon" onClick={() => handleDone(todo.id)}>
+        <div className="cursor-pointer select-none">
+          {isActive ? <AiFillCheckCircle onClick={() => {
+            setIsActive(!isActive)
+          }} /> :
+            <AiOutlineCheckCircle onClick={() => {
+              setIsActive(!isActive)
+            }} />
+          }
+        </div>
+      </span>
+      {edit ? (
+        <input
+          value={editTodo}
+          onChange={(e) => setEditTodo(e.target.value)}
+          className="todos__single--text"
+          ref={inputRef}
+        />
+      ) : todo.isDone ? (
+        <s className="todos__single--text">{todo.todo}</s>
+      ) : (
+        <span className="todos__single--text">{todo.todo}</span>
       )}
-    </Draggable>
+      <div>
+
+        <span
+          className="icon"
+          onClick={() => {
+            if (!edit && !todo.isDone) {
+              setEdit(!edit);
+            }
+          }}
+        >
+          <AiFillEdit />
+        </span>
+        <span className="icon" onClick={() => handleDelete(todo.id)}>
+          <AiOutlineClose />
+        </span>
+
+      </div>
+    </form>
+
+
+
   );
 };
 

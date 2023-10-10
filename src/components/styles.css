@@ -4,35 +4,101 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  
 }
-.bigbox{
-  padding: 50px;
-  width: 30%;
-  height: 100%;
-  background-color:transparent;
-  margin-top: 30px;
-}
-.bg_image{
-  background-image: url("https://4kwallpapers.com/images/wallpapers/lake-mountains-rocks-twilight-sunset-starry-sky-purple-sky-3440x1440-3768.jpg");
+
+.bg_image {
+  background-image: url("/public/bg-desktop-light.jpg");
   height: 350px;
-  background-size: 100% 100%;
-  
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .heading {
   text-transform: uppercase;
-  font-size: xxx-large  ;
+  font-size: xxx-large;
   font-weight: bold;
- text-align: start;
+  text-align: start;
   color: white;
 }
 
+.text-center {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 23px;
+  margin: -30px 0 80px 0;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
 
+.box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(91, 36, 123, 0.719);
+  border-radius: 3px;
+  padding: 70px 100px;
+}
 
+.input-container {
+  position: relative;
+  margin-bottom: 25px;
+}
 
+.input-container label {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
 
+.input-container input {
+  border: 0;
+  border-bottom: 1px solid #000000;
+  background: transparent;
+  width: 100%;
+  padding: 8px 0 5px 0;
+  font-size: 16px;
+  color: #fff;
+
+}
+
+.input-container input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ffffff;
+}
+
+.btn {
+  color: #000000;
+  background-color: #ffffff;
+  font-weight: bold;
+  outline: none;
+  border: 0;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  margin-top: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.btn:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}
+
+.input-container input:focus~label,
+.input-container input:valid~label {
+  top: -12px;
+  font-size: 12px;
+}
 
 .input {
   display: flex;
@@ -46,40 +112,20 @@
   display: flex;
   margin-top: 40px;
   justify-content: center;
-  width: 84%;
+  width: 60%;
   border-radius: 5px;
   padding: 20px;
   font-size: large;
   border: none;
   transition: 0.2s;
   background-color: white;
+
 }
 
 .input__box:focus {
   box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
   outline: none;
 }
-
-.container {
-  width: 100%;
-  display: flex;
-  justify-self: center;
-  align-items: center;
-  margin-top: 40px;
-  background-color:transparent;
-}
-
-
-
-.todos-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  width: 100%;
-}
-
-
 
 
 .todos__heading {
@@ -92,6 +138,27 @@
   background-color: white;
 }
 
+.bigbox {
+  padding: 50px;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  margin-top: 30px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  margin-top: 30px;
+  background-color: transparent;
+}
+
 .todos {
   display: flex;
   flex-wrap: wrap;
@@ -99,27 +166,42 @@
   align-items: center;
   width: 100%;
   font-size: medium;
-  background-color:transparent;
+  background-color: transparent;
   box-shadow: black;
-  border-radius: 10px; 
+  border-radius: 10px;
+}
+
+.todos-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .todos__single {
+
   display: flex;
   justify-content: center;
   padding: 10px;
   background-color: white;
   transition: 0.2s;
   border-radius: 8px;
-  width: 88%;
-  
+  width: 480px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
 }
+.todos__single--text{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .footer {
-  width: auto;
+
   border: none;
-  background-color:white;
-  width: 88%;
+  background-color: white;
+  width: 480px;
   display: flex;
   justify-content: space-around;
   border-radius: 7px;
@@ -127,12 +209,14 @@
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.button__footer{
-background-color:transparent;
-border: none;
-font-size: small;
-color: gray;
+
+.button__footer {
+  background-color: transparent;
+  border: none;
+  font-size: small;
+  color: gray;
 }
+
 .dragactive {
   background-color: rgb(0, 221, 236);
 }
@@ -144,6 +228,7 @@ color: gray;
 .remove {
   background-color: rgb(235, 103, 80);
 }
+
 .drag {
   box-shadow: 0 0 20px black;
 }
@@ -172,11 +257,9 @@ color: gray;
 }
 
 .doneicon {
-
   font-size: 25px;
   cursor: pointer;
 }
-
 
 .valid {
   color: limegreen;
@@ -195,40 +278,48 @@ color: gray;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
 .offscreen {
   position: absolute;
   left: -9999px;
 }
+
 .instructions {
   font-size: 0.75rem;
   border-radius: 0.5rem;
-  background: #000;
-  color: #fff;
+  background: transparent;
+  color: 4#000000;
   padding: 0.25rem;
   position: relative;
   bottom: -10px;
 }
-@media (max-width: 700px) {
 
-
-  .input__box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 84%;
- 
-    padding: 20px;
-
-
-  }
-
-  
+.login__full {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
-@media (max-width: 700px) {
-  .input__box {
-    width: 100%; 
-    padding: 20px;
-  }
+
+.login__heading {
+  font-size: xxx-large;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+}
+
+.user__input {
+  display: flex;
+  justify-content: center;
+  background: #ecf0f1;
+  border: #ccc 1px solid;
+  border-bottom: #ccc 2px solid;
+  padding: 8px;
+  width: 50%;
+  color: #AAAAAA;
+  margin-top: 10px;
+  font-size: 1em;
+  border-radius: 4px;
 }
 
 @media (max-width: 800px) {
@@ -237,32 +328,69 @@ color: gray;
     text-align: center;
     display: flex;
   }
-  
+
   .input__box {
-    width: auto;
+    width: 280px;
+    
   }
-  
+
   .todos__single {
-    width: 130%;
+    width: 300px;
+    padding: 8px;
   }
-  
+  .todos__single--text{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .todos__single--text.long-text{
+    white-space: normal;
+    word-wrap: ellipsis;
+  }
+
   .bg_image {
-    height: 300px;
-    width: 110%;
+    background-image: url("/public/bg-mobile-light.jpg");
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+ 
   }
-  
+
   .footer {
-    width: 130%;
+    width: 100%;
+    overflow: hidden;
+    padding: 5px;
   }
-  
+
   .bigbox {
     width: 50%;
-  align-items: center;
+    align-items: center;
   }
 }
 
+@media (max-width: 800px) {
+  .text-center {
+    font-size: 18px;
+    margin: -20px 0 50px 0;
+  }
 
+  .box {
+    padding: 50px 20px;
+    width: 60%;
+  }
 
+  .input-container label {
+    font-size: 14px;
+  }
 
+  .input-container input {
+    font-size: 14px;
+  }
 
-
+  .btn {
+    font-size: 14px;
+    padding: 8px 16px;
+    margin-top: 30px;
+  }
+}
