@@ -66,6 +66,7 @@ const App: React.FC = () => {
     <DragDropContext onDragEnd={onDragEnd}>
       
         <div className="App">
+          <div className="bigbox">
           <span className="heading">T O D O</span>
           <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
           <TodoList
@@ -74,6 +75,7 @@ const App: React.FC = () => {
             CompletedTodos={CompletedTodos}
             setCompletedTodos={setCompletedTodos}
           />
+          </div>
         </div>
       
     </DragDropContext>

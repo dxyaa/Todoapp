@@ -7,6 +7,13 @@
   
   
 }
+.bigbox{
+  padding: 50px;
+  width: 30%;
+  height: 100%;
+  background-color:transparent;
+  margin-top: 30px;
+}
 .bg_image{
   background-image: url("https://4kwallpapers.com/images/wallpapers/lake-mountains-rocks-twilight-sunset-starry-sky-purple-sky-3440x1440-3768.jpg");
   height: 350px;
@@ -18,14 +25,8 @@
   text-transform: uppercase;
   font-size: xxx-large  ;
   font-weight: bold;
-  align-items: start;
-  margin-bottom: 30px;
-  margin-top: 80px;
+ text-align: start;
   color: white;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  
 }
 
 
@@ -43,8 +44,9 @@
 
 .input__box {
   display: flex;
+  margin-top: 40px;
   justify-content: center;
-  width: 33%;
+  width: 84%;
   border-radius: 5px;
   padding: 20px;
   font-size: large;
@@ -214,7 +216,7 @@ color: gray;
     justify-content: center;
     align-items: center;
     width: 84%;
-    /* Full width for smaller screens */
+ 
     padding: 20px;
 
 
@@ -222,16 +224,45 @@ color: gray;
 
   
 }
+@media (max-width: 700px) {
+  .input__box {
+    width: 100%; 
+    padding: 20px;
+  }
+}
+
 @media (max-width: 800px) {
   .heading {
- 
     font-size: xx-large;
+    text-align: center;
+    display: flex;
   }
- 
+  
+  .input__box {
+    width: auto;
+  }
+  
+  .todos__single {
+    width: 130%;
+  }
   
   .bg_image {
     height: 300px;
-    width:110%;
- 
+    width: 110%;
+  }
+  
+  .footer {
+    width: 130%;
+  }
+  
+  .bigbox {
+    width: 50%;
+  align-items: center;
   }
 }
+
+
+
+
+
+
