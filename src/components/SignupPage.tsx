@@ -1,10 +1,17 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./styles.css";
 
+type User = {
+  username: string;
+  password: string;
+  todos: string[];
+};
+
+
 const SignupPage = () => {
-  const userRef = useRef<HTMLInputElement | null>(null);;
+  const userRef = useRef<HTMLInputElement | null>(null);
   const navigate = useNavigate();
 
   const [user, setUser] = useState("");
@@ -22,6 +29,16 @@ const SignupPage = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
+  const addUserToStorage = (user: User) => {
+    const users: User[] = JSON.parse(localStorage.getItem("users") || "[]");
+    users.push(user);
+    localStorage.setItem("users", JSON.stringify(users));
+    console.log("User added to local storage:", user);
+  };
+
+  if (!localStorage.getItem("users")) {
+    localStorage.setItem("users", JSON.stringify([]));
+  }
   useEffect(() => {
     if (userRef.current) {
       userRef.current.focus();
@@ -29,7 +46,7 @@ const SignupPage = () => {
   }, []);
 
   useEffect(() => {
-    setValidName(user.length >= 4 && user.length <= 24)
+    setValidName(user.length >= 4 && user.length <= 24);
   }, [user]);
 
   useEffect(() => {
@@ -42,14 +59,15 @@ const SignupPage = () => {
 
   const handleSignUp = () => {
     if (validName && validPwd && validMatch) {
+      const newUser: User = { username: user, password: pwd, todos: [] };
+      addUserToStorage(newUser);
       setSuccess(true);
-      navigate("/mainpage");
+      navigate("/");
     } else {
       setErrMsg("Please fill out the form correctly.");
     }
     console.log("Sign Up button clicked!");
   };
-
   return (
     <div className="bg_image">
       <div className="box">
@@ -66,7 +84,7 @@ const SignupPage = () => {
               {errMsg}
             </p>
 
-            <form>
+            <form onSubmit={handleSignUp}>
               <div className="text-center">Register</div>
               <div className="input-container">
                 <input
@@ -134,7 +152,7 @@ const SignupPage = () => {
                 disabled={!validName || !validPwd || !validMatch}
                 onClick={handleSignUp}
               >
-                Sign Up
+                Submit
               </button>
             </form>
             <p>
@@ -151,3 +169,5 @@ const SignupPage = () => {
 };
 
 export default SignupPage;
+
+

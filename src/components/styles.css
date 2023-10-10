@@ -216,7 +216,18 @@
   font-size: small;
   color: gray;
 }
-
+.button__footer:focus{
+  color: black;
+  font-weight: bold;
+}
+.button__footer:active{
+  color: black;
+  font-weight: bold;
+}
+.button__footer:visited{
+  color: black;
+  font-weight: bold;
+}
 .dragactive {
   background-color: rgb(0, 221, 236);
 }

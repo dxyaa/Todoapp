@@ -3,6 +3,8 @@ import { Todo } from "../model";
 import SingleTodo from "./SingleTodo";
 import { Droppable } from "react-beautiful-dnd";
 
+
+
 interface props {
   todos: Array<Todo>;
   setTodos: React.Dispatch<React.SetStateAction<Array<Todo>>>;
@@ -88,7 +90,7 @@ const TodoList: React.FC<props> = ({
                   Active
                 </button>
                 <button
-                  className={`button__footer${filter === "Completed" ? "active" : ""}`}
+                  className={`button__footer ${filter === "Completed" ? "active" : ""}`}
                   onClick={() => {
                     setFilter("Completed");
                     console.log("Completed button clicked");
