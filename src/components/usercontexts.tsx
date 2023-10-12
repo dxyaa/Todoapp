@@ -1,13 +1,17 @@
 import React, { createContext, useContext, useState } from 'react';
+import { Todo } from '../model';
 
 export type User = {
-    username: string;
-    password: string;
-    todos: never[];
+  id: number;
+  username: string;
+  password: string;
+  todos: Todo[];
 };
+
 
 type UserContextType = {
   user: User | null;
+  setUser: (user: User | null) => void; 
   login: (userData: User) => void;
   logout: () => void;
 };
@@ -23,7 +27,7 @@ export const useUser = () => {
 };
 
 interface UserProviderProps {
-  children: React.ReactNode; // Define children as React.ReactNode
+  children: React.ReactNode;
 }
 
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
@@ -38,7 +42,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <UserContext.Provider value={{ user, setUser, login, logout }}>
       {children}
     </UserContext.Provider>
   );

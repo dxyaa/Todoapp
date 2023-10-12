@@ -12,22 +12,18 @@ const LoginPage = () => {
   const { login } = useUser();
 
   const handleLogin = () => {
-
     const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
     const user = storedUsers.find((u: User) => u.username === username && u.password === password);
-
-   
-
+  
     if (user) {
       const userWithId: User = { ...user, id: Date.now() };
-
-
-      login(userWithId);
+      login(userWithId); 
       navigate('/mainpage');
     } else {
       alert('Invalid username or password');
     }
   };
+  
   return (
     <div className='bg_image'>
       <div className="box">

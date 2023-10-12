@@ -2,8 +2,13 @@ import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./styles.css";
+let userIdCounter = 1; // Initialize a counter
+
+
+
 
 type User = {
+  id: number;
   username: string;
   password: string;
   todos: string[];
@@ -35,6 +40,7 @@ const SignupPage = () => {
     localStorage.setItem("users", JSON.stringify(users));
     console.log("User added to local storage:", user);
   };
+  
 
   if (!localStorage.getItem("users")) {
     localStorage.setItem("users", JSON.stringify([]));
@@ -58,9 +64,22 @@ const SignupPage = () => {
   }, [pwd, matchPwd]);
 
   const handleSignUp = () => {
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    if (users.some((existingUser: User) => existingUser.username === user)) {
+      setErrMsg("Username already taken.");
+      return;
+    }
+    const newUser = {
+      id: Date.now(), // Generate a unique ID using Date.now()
+      username: user,
+      password: pwd,
+      todos: [],
+    };
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+  
     if (validName && validPwd && validMatch) {
-      const newUser: User = { username: user, password: pwd, todos: [] };
-      addUserToStorage(newUser);
+      addUserToStorage(newUser); // Add the newUser to storage
       setSuccess(true);
       navigate("/");
     } else {
@@ -68,6 +87,7 @@ const SignupPage = () => {
     }
     console.log("Sign Up button clicked!");
   };
+  
   return (
     <div className="bg_image">
       <div className="box">

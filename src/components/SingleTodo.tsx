@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import { AiFillEdit, AiOutlineClose, AiFillCheckCircle, AiOutlineCheckCircle } from "react-icons/ai";
-import { MdDone } from "react-icons/md";
 import { Todo } from "../model";
 
 

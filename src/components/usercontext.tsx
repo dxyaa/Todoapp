@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useState } from 'react';
+
+
 type LoginUser = {
   username: string;
   password: string;
-  todos: never[]; // Adjust this based on your requirements
+  todos: never[];
 };
 type usercontextType = {
   user: LoginUser | null;
@@ -21,7 +23,7 @@ export const useUser = () => {
 };
 
 interface UserProviderProps {
-  children: React.ReactNode; // Define children as React.ReactNode
+  children: React.ReactNode;
 }
 
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
